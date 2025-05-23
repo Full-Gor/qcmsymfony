@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résumé du Cours Symfony et QCM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+        .fade-in {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+        }
+        .hidden {
+            display: none;
+        }
+        .correct {
+            background-color: #34d399 !important;
+        }
+        .incorrect {
+            background-color: #f87171 !important;
+        }
+        
+  .course-nav {
+    padding: 1rem;
+    background: #4CAF50;
+    margin-bottom: 2rem;
+  }
+  .course-nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  .course-nav a:hover {
+    background-color: #45a049;
+  }
+  .course-nav a.current {
+    background-color: #2E7D32;
+    font-weight: bold;
+  }
+
+    </style>
+</head>
+<nav class="course-nav">
+  <a href="index.html" class="current">Accueil</a>
+  <a href="page2.html">Cours Symfony</a>
+  <a href="page3.html">Autre Cours</a>
+</nav>
+<body class="bg-gray-100 font-sans">
+    <nav style="padding: 1rem; background: #f0f0f0; margin-bottom: 2rem;">
+  <a href="index.html" style="margin-right: 1rem;">Accueil</a>
+  <a href="page2.html" style="margin-right: 1rem;">Cours Symfony</a>
+  <a href="page3.html">Autre Cours</a>
+</nav>
+    <div id="course-content" class="container mx-auto p-6 max-w-4xl bg-white shadow-md rounded-lg">
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">Résumé du Cours Symfony</h1>
+
+        <!-- Section 1: Commandes Utiles Symfony -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-500">Commandes Utiles Symfony</h2>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <h3 class="text-xl font-medium mb-2">Génération de Base</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Créer un projet</strong>: <code>symfony new nom_projet --webapp</code></li>
+                    <li><strong>Démarrer le serveur</strong>: <code>symfony serve</code> ou <code>symfony serve -d</code> (arrière-plan)</li>
+                    <li><strong>Ouvrir dans le navigateur</strong>: <code>symfony open:local</code></li>
+                    <li><strong>Vérifier config</strong>: <code>symfony check:requirements</code></li>
+                </ul>
+                <h3 class="text-xl font-medium mt-4 mb-2">Console Symfony</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Lister commandes</strong>: <code>php bin/console</code></li>
+                    <li><strong>Lister routes</strong>: <code>php bin/console debug:router</code></li>
+                    <li><strong>Lister services</strong>: <code>php bin/console debug:container</code></li>
+                    <li><strong>Vider cache</strong>: <code>php bin/console cache:clear</code></li>
+                    <li><strong>Voir version</strong>: <code>php bin/console --version</code></li>
+                </ul>
+                <h3 class="text-xl font-medium mt-4 mb-2">Génération de Code</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Contrôleur</strong>: <code>php bin/console make:controller NomController</code></li>
+                    <li><strong>Entité</strong>: <code>php bin/console make:entity</code></li>
+                    <li><strong>Migration</strong>: <code>php bin/console make:migration</code></li>
+                    <li><strong>Appliquer migration</strong>: <code>php bin/console doctrine:migrations:migrate</code></li>
+                    <li><strong>Formulaire</strong>: <code>php bin/console make:form NomType</code></li>
+                    <li><strong>Authentification</strong>: <code>php bin/console make:auth</code></li>
+                    <li><strong>Utilisateur</strong>: <code>php bin/console make:user</code></li>
+                    <li><strong>CRUD</strong>: <code>php bin/console make:crud Nom</code></li>
+                </ul>
+                <h3 class="text-xl font-medium mt-4 mb-2">Doctrine</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Créer BDD</strong>: <code>php bin/console doctrine:database:create</code></li>
+                    <li><strong>Voir entités</strong>: <code>php bin/console doctrine:mapping:info</code></li>
+                    <li><strong>Mettre à jour schéma</strong>: <code>php bin/console doctrine:schema:update --force</code></li>
+                    <li><strong>Exécuter SQL</strong>: <code>php bin/console doctrine:query:sql 'SELECT * FROM user'</code></li>
+                    <li><strong>Supprimer BDD</strong>: <code>php bin/console doctrine:database:drop --force</code></li>
+                </ul>
+                <h3 class="text-xl font-medium mt-4 mb-2">Sécurité</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Créer authenticator</strong>: <code>php bin/console make:auth</code></li>
+                    <li><strong>Créer utilisateur</strong>: <code>php bin/console make:user</code></li>
+                    <li><strong>Contrôleur login</strong>: <code>php bin/console make:controller SecurityController</code></li>
+                </ul>
+                <h3 class="text-xl font-medium mt-4 mb-2">Divers & Debug</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Créer service</strong>: Créer un fichier dans <code>src/Service/</code> (détection automatique)</li>
+                    <li><strong>Lister commandes</strong>: <code>php bin/console list</code></li>
+                    <li><strong>Voir config service</strong>: <code>php bin/console debug:container App\Service\TonService</code></li>
+                    <li><strong>Tester BDD</strong>: <code>php bin/console doctrine:query:sql 'SELECT NOW()'</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 2: Créer une Entité Utilisateur -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-500">Créer une Entité Utilisateur (make:user)</h2>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <p><strong>Commande</strong>: <code>symfony console make:user</code> ou <code>php bin/console make:user</code></p>
+                <p><strong>But</strong>: Génère une classe <code>User.php</code> dans <code>src/Entity/</code> pour l'authentification.</p>
+                <h3 class="text-xl font-medium mt-4 mb-2">Étapes de Configuration</h3>
+                <ol class="list-decimal pl-6">
+                    <li><strong>Nom de la classe</strong>: Généralement <code>User</code>.</li>
+                    <li><strong>Stockage en BDD</strong>: Répondre <code>yes</code> pour utiliser Doctrine.</li>
+                    <li><strong>Identifiant unique</strong>: Choisir <code>email</code> ou <code>username</code> (ex: <code>email</code> génère un champ unique).</li>
+                    <li><strong>Mot de passe</strong>: Répondre <code>yes</code> pour ajouter un champ <code>password</code> et l'interface <code>PasswordAuthenticatedUserInterface</code>.</li>
+                </ol>
+                <p><strong>Résultat</strong>: Une entité <code>User</code> prête pour l'authentification, avec migration si <code>make:migration</code> est exécuté.</p>
+                <p><strong>Prochaines étapes</strong>: Créer une migration (<code>php bin/console make:migration</code>) et appliquer (<code>php bin/console doctrine:migrations:migrate</code>).</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Base des Entités (Doctrine) -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-500">Base des Entités avec Doctrine</h2>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <h3 class="text-xl font-medium mb-2">Créer une Entité</h3>
+                <p><strong>Commande</strong>: <code>php bin/console make:entity</code></p>
+                <p><strong>Exemple</strong>: Entité <code>Product</code> avec champs <code>name</code> (string), <code>price</code> (float), <code>createdAt</code> (datetime).</p>
+                <h3 class="text-xl font-medium mt-4 mb-2">Exemple de Code</h3>
+                <pre class="bg-gray-800 text-white p-4 rounded-lg">
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity]
+class Product
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: "integer")]
+    private $id;
+
+    #[ORM\Column(type: "string", length: 255)]
+    private $name;
+
+    #[ORM\Column(type: "float")]
+    private $price;
+
+    #[ORM\Column(type: "datetime")]
+    private $createdAt;
+
+    // Getters & Setters...
+}
+                </pre>
+                <h3 class="text-xl font-medium mt-4 mb-2">Gestion de la Base de Données</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Créer BDD</strong>: <code>php bin/console doctrine:database:create</code></li>
+                    <li><strong>Créer migration</strong>: <code>php bin/console make:migration</code></li>
+                    <li><strong>Appliquer migration</strong>: <code>php bin/console doctrine:migrations:migrate</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: Symfony CLI -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-500">Symfony CLI</h2>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <h3 class="text-xl font-medium mb-2">Installation</h3>
+                <p><strong>Linux/macOS</strong>: <code>curl -sS https://get.symfony.com/cli/installer | bash</code></p>
+                <p><strong>Windows</strong>: Télécharger sur <a href="https://symfony.com/download" class="text-blue-600">symfony.com/download</a>.</p>
+                <p><strong>Vérification</strong>: <code>symfony -v</code></p>
+                <h3 class="text-xl font-medium mt-4 mb-2">Commandes Utiles</h3>
+                <ul class="list-disc pl-6">
+                    <li><strong>Créer projet complet</strong>: <code>symfony new mon_projet --webapp</code></li>
+                    <li><strong>Créer projet minimal</strong>: <code>symfony new mon_projet</code></li>
+                    <li><strong>Lancer serveur</strong>: <code>symfony serve</code> ou <code>symfony serve -d</code></li>
+                    <li><strong>Ouvrir navigateur</strong>: <code>symfony open:local</code></li>
+                    <li><strong>Vérifier dépendances</strong>: <code>symfony check:requirements</code></li>
+                    <li><strong>Nettoyer cache</strong>: <code>symfony console cache:clear</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Modèle MVC dans Symfony -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-500">Modèle MVC dans Symfony</h2>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <h3 class="text-xl font-medium mb-2">Modèle (Model)</h3>
+                <p>- <strong>Entités</strong>: Dans <code>src/Entity/</code>, représentent les tables de la BDD.<br>
+                   - <strong>Repositories</strong>: Dans <code>src/Repository/</code>, pour interroger les entités.<br>
+                   - Utilise <strong>Doctrine ORM</strong>.</p>
+                <h3 class="text-xl font-medium mt-4 mb-2">Vue (View)</h3>
+                <p>- Fichiers <code>.twig</code> dans <code>templates/</code>.<br>
+                   - Affiche les données via la syntaxe Twig (ex: <code>{{ produit.nom }}</code>).</p>
+                <h3 class="text-xl font-medium mt-4 mb-2">Contrôleur (Controller)</h3>
+                <p>- Classes dans <code>src/Controller/</code>.<br>
+                   - Chaque méthode répond à une URL et prépare les données pour la vue.</p>
+                <h3 class="text-xl font-medium mt-4 mb-2">Exemple de Contrôleur</h3>
+                <pre class="bg-gray-800 text-white p-4 rounded-lg">
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ProduitRepository;
+
+class ProduitController extends AbstractController
+{
+    #[Route('/produits', name: 'liste_produits')]
+    public function index(ProduitRepository $repository): Response
+    {
+        $produits = $repository->findAll();
+        return $this->render('produit/index.html.twig', [
+            'produits' => $produits
+        ]);
+    }
+}
+                </pre>
+                <h3 class="text-xl font-medium mt-4 mb-2">Exemple de Repository</h3>
+                <pre class="bg-gray-800 text-white p-4 rounded-lg">
+namespace App\Repository;
+
+use App\Entity\Produit;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
+class ProduitRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Produit::class);
+    }
+
+    public function findProduitsEnStock(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.stock > 0')
+            ->orderBy('p.nom', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+}
+                </pre>
+            </div>
+        </section>
+
+        <!-- Section 6: Interfaces en PHP -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-500">Interfaces en PHP</h2>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <h3 class="text-xl font-medium mb-2">Définition</h3>
+                <p>- Une interface définit un <strong>contrat</strong> : liste de méthodes à implémenter.<br>
+                   - Pas de logique, seulement des signatures.</p>
+                <h3 class="text-xl font-medium mt-4 mb-2">Exemple</h3>
+                <pre class="bg-gray-800 text-white p-4 rounded-lg">
+interface Vehicule {
+    public function demarrer();
+    public function arreter();
+}
+
+class Voiture implements Vehicule {
+    public function demarrer() {
+        echo "🚗 La voiture démarre.\n";
+    }
+
+    public function arreter() {
+        echo "🛑 La voiture s'arrête.\n";
+    }
+}
+
+$maVoiture = new Voiture();
+$maVoiture->demarrer(); // Affiche : 🚗 La voiture démarre.
+$maVoiture->arreter();  // Affiche : 🛑 La voiture s'arrête.
+                </pre>
+                <h3 class="text-xl font-medium mt-4 mb-2">Interface UserInterface dans Symfony</h3>
+                <pre class="bg-gray-800 text-white p-4 rounded-lg">
+interface UserInterface {
+    public function getRoles(): array;
+    public function getPassword(): ?string;
+    public function getUserIdentifier(): string;
+    public function eraseCredentials(): void;
+}
+
+class User implements UserInterface {
+    private string $email;
+    private string $password;
+
+    public function getRoles(): array {
+        return ['ROLE_USER'];
+    }
+
+    public function getPassword(): ?string {
+        return $this->password;
+    }
+
+    public function getUserIdentifier(): string {
+        return $this->email;
+    }
+
+    public function eraseCredentials(): void {
+        // Efface données sensibles si nécessaire
+    }
+}
+                </pre>
+                <h3 class="text-xl font-medium mt-4 mb-2">Pourquoi utiliser des interfaces ?</h3>
+                <ul class="list-disc pl-6">
+                    <li>Permet le polymorphisme et l'injection de dépendances.</li>
+                    <li>Garantit une structure cohérente.</li>
+                    <li>Essentiel pour la sécurité et les services Symfony.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Button to Show Quiz -->
+        <div class="text-center mt-8">
+            <button id="show-quiz" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                Passer au QCM
+            </button>
+        </div>
+    </div>
+
+    <!-- Quiz Section (Hidden Initially) -->
+    <div id="quiz-content" class="container mx-auto p-6 max-w-4xl bg-white shadow-md rounded-lg hidden">
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">QCM sur le Cours Symfony</h1>
+        <div id="quiz-questions">
+            <!-- Questions will be dynamically inserted here -->
+        </div>
+        <div id="quiz-result" class="mt-6 text-center hidden">
+            <h2 class="text-2xl font-semibold mb-4">Résultat</h2>
+            <p id="score-text" class="text-lg"></p>
+            <button id="restart-quiz" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition mt-4">
+                Recommencer le QCM
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Quelle commande crée un nouveau projet Symfony avec toutes les dépendances ?",
+                options: [
+                    "symfony new mon_projet",
+                    "symfony new mon_projet --webapp",
+                    "php bin/console make:project",
+                    "symfony create mon_projet"
+                ],
+                correct: 1
+            },
+            {
+                question: "Quelle commande vide le cache dans Symfony ?",
+                options: [
+                    "php bin/console cache:clear",
+                    "symfony cache:clear",
+                    "php bin/console clear:cache",
+                    "symfony console cache:delete"
+                ],
+                correct: 0
+            },
+            {
+                question: "Quel dossier contient les entités dans Symfony ?",
+                options: [
+                    "src/Controller/",
+                    "src/Entity/",
+                    "src/Repository/",
+                    "templates/"
+                ],
+                correct: 1
+            },
+            {
+                question: "Quelle commande génère une entité utilisateur ?",
+                options: [
+                    "php bin/console make:entity",
+                    "php bin/console make:user",
+                    "php bin/console make:auth",
+                    "php bin/console create:user"
+                ],
+                correct: 1
+            },
+            {
+                question: "Quel composant du modèle MVC gère l'affichage dans Symfony ?",
+                options: [
+                    "Modèle",
+                    "Vue",
+                    "Contrôleur",
+                    "Repository"
+                ],
+                correct: 1
+            },
+            {
+                question: "Que définit une interface en PHP ?",
+                options: [
+                    "Une classe abstraite",
+                    "Un contrat de méthodes à implémenter",
+                    "Une méthode statique",
+                    "Une logique complète"
+                ],
+                correct: 1
+            },
+            {
+                question: "Quelle méthode est obligatoire dans UserInterface de Symfony ?",
+                options: [
+                    "getUsername()",
+                    "getRoles()",
+                    "getEmail()",
+                    "setPassword()"
+                ],
+                correct: 1
+            },
+            {
+                question: "Quelle commande applique une migration Doctrine ?",
+                options: [
+                    "php bin/console doctrine:migrations:migrate",
+                    "php bin/console make:migration",
+                    "php bin/console doctrine:database:migrate",
+                    "php bin/console doctrine:schema:update"
+                ],
+                correct: 0
+            },
+            {
+                question: "Où sont stockés les fichiers Twig dans Symfony ?",
+                options: [
+                    "src/Entity/",
+                    "src/Controller/",
+                    "templates/",
+                    "src/Repository/"
+                ],
+                correct: 2
+            },
+            {
+                question: "Quelle commande vérifie les dépendances du projet ?",
+                options: [
+                    "symfony check:requirements",
+                    "php bin/console check:dependencies",
+                    "symfony verify:project",
+                    "php bin/console debug:requirements"
+                ],
+                correct: 0
+            }
+        ];
+
+        let currentScore = 0;
+
+        // Function to display quiz
+        function displayQuiz() {
+            const quizContainer = document.getElementById('quiz-questions');
+            quizContainer.innerHTML = '';
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'mb-6';
+                questionDiv.innerHTML = `
+                    <p class="text-lg font-medium mb-2">${index + 1}. ${q.question}</p>
+                    ${q.options.map((option, i) => `
+                        <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="${index}" data-option="${i}">
+                            ${option}
+                        </button>
+                    `).join('')}
+                `;
+                quizContainer.appendChild(questionDiv);
+            });
+
+            // Add event listeners to option buttons
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const questionIndex = parseInt(this.dataset.question);
+                    const optionIndex = parseInt(this.dataset.option);
+                    const correctIndex = questions[questionIndex].correct;
+
+                    // Disable all buttons for this question
+                    document.querySelectorAll(`.option-btn[data-question="${questionIndex}"]`)
+                        .forEach(b => b.disabled = true);
+
+                    // Highlight correct/incorrect
+                    if (optionIndex === correctIndex) {
+                        this.classList.add('correct');
+                        currentScore++;
+                    } else {
+                        this.classList.add('incorrect');
+                        document.querySelector(`.option-btn[data-question="${questionIndex}"][data-option="${correctIndex}"]`)
+                            .classList.add('correct');
+                    }
+
+                    // Check if all questions answered
+                    const answeredQuestions = document.querySelectorAll('.option-btn:disabled').length / questions[0].options.length;
+                    if (answeredQuestions === questions.length) {
+                        showResult();
+                    }
+                });
+            });
+        }
+
+        // Function to show result
+        function showResult() {
+            const resultDiv = document.getElementById('quiz-result');
+            const scoreText = document.getElementById('score-text');
+            scoreText.textContent = `Votre score : ${currentScore} / ${questions.length}`;
+            resultDiv.classList.remove('hidden');
+        }
+
+        // Show quiz button
+        document.getElementById('show-quiz').addEventListener('click', () => {
+            const courseContent = document.getElementById('course-content');
+            const quizContent = document.getElementById('quiz-content');
+            courseContent.classList.add('fade-out');
+            setTimeout(() => {
+                courseContent.classList.add('hidden');
+                quizContent.classList.remove('hidden');
+                quizContent.classList.add('fade-in');
+                displayQuiz();
+            }, 500);
+        });
+
+        // Restart quiz
+        document.getElementById('restart-quiz').addEventListener('click', () => {
+            currentScore = 0;
+            document.getElementById('quiz-result').classList.add('hidden');
+            displayQuiz();
+        });
+    </script>
+</body>
+</html>
