@@ -19,49 +19,43 @@
         }
         .correct {
             background-color: #34d399 !important;
+            color: white;
         }
         .incorrect {
             background-color: #f87171 !important;
+            color: white;
         }
-        
-  .course-nav {
-    padding: 1rem;
-    background: #4CAF50;
-    margin-bottom: 2rem;
-  }
-  .course-nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 1.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  .course-nav a:hover {
-    background-color: #45a049;
-  }
-  .course-nav a.current {
-    background-color: #2E7D32;
-    font-weight: bold;
-  }
-
+        .course-nav {
+            padding: 1rem;
+            background: #4CAF50;
+            margin-bottom: 2rem;
+        }
+        .course-nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .course-nav a:hover {
+            background-color: #45a049;
+        }
+        .course-nav a.current {
+            background-color: #2E7D32;
+            font-weight: bold;
+        }
     </style>
 </head>
-<nav class="course-nav">
-  <a href="index.html" class="current">Accueil</a>
-  <a href="page2.html">Cours Symfony</a>
-  <a href="page3.html">Autre Cours</a>
-</nav>
 <body class="bg-gray-100 font-sans">
-    <nav style="padding: 1rem; background: #f0f0f0; margin-bottom: 2rem;">
-  <a href="index.html" style="margin-right: 1rem;">Accueil</a>
-  <a href="page2.html" style="margin-right: 1rem;">Cours Symfony</a>
-  <a href="page3.html">Autre Cours</a>
-</nav>
+    <nav class="course-nav">
+        <a href="index.html">cours 1</a>
+        <a href="page2.html" class="current">Cours 2</a>
+        <a href="page3.html">Cours 3</a>
+    </nav>
     <div id="course-content" class="container mx-auto p-6 max-w-4xl bg-white shadow-md rounded-lg">
         <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">Résumé du Cours Symfony</h1>
 
-        <!-- Section 1: Commandes Utiles Symfony -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4 text-blue-500">Commandes Utiles Symfony</h2>
             <div class="bg-gray-50 p-4 rounded-lg">
@@ -115,7 +109,6 @@
             </div>
         </section>
 
-        <!-- Section 2: Créer une Entité Utilisateur -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4 text-blue-500">Créer une Entité Utilisateur (make:user)</h2>
             <div class="bg-gray-50 p-4 rounded-lg">
@@ -125,6 +118,7 @@
                 <ol class="list-decimal pl-6">
                     <li><strong>Nom de la classe</strong>: Généralement <code>User</code>.</li>
                     <li><strong>Stockage en BDD</strong>: Répondre <code>yes</code> pour utiliser Doctrine.</li>
+                   PM
                     <li><strong>Identifiant unique</strong>: Choisir <code>email</code> ou <code>username</code> (ex: <code>email</code> génère un champ unique).</li>
                     <li><strong>Mot de passe</strong>: Répondre <code>yes</code> pour ajouter un champ <code>password</code> et l'interface <code>PasswordAuthenticatedUserInterface</code>.</li>
                 </ol>
@@ -133,7 +127,6 @@
             </div>
         </section>
 
-        <!-- Section 3: Base des Entités (Doctrine) -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4 text-blue-500">Base des Entités avec Doctrine</h2>
             <div class="bg-gray-50 p-4 rounded-lg">
@@ -175,7 +168,6 @@ class Product
             </div>
         </section>
 
-        <!-- Section 4: Symfony CLI -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4 text-blue-500">Symfony CLI</h2>
             <div class="bg-gray-50 p-4 rounded-lg">
@@ -195,7 +187,6 @@ class Product
             </div>
         </section>
 
-        <!-- Section 5: Modèle MVC dans Symfony -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4 text-blue-500">Modèle MVC dans Symfony</h2>
             <div class="bg-gray-50 p-4 rounded-lg">
@@ -256,7 +247,6 @@ class ProduitRepository extends ServiceEntityRepository
             </div>
         </section>
 
-        <!-- Section 6: Interfaces en PHP -->
         <section class="mb-8">
             <h2 class="text-2xl font-semibold mb-4 text-blue-500">Interfaces en PHP</h2>
             <div class="bg-gray-50 p-4 rounded-lg">
@@ -323,7 +313,6 @@ class User implements UserInterface {
             </div>
         </section>
 
-        <!-- Button to Show Quiz -->
         <div class="text-center mt-8">
             <button id="show-quiz" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
                 Passer au QCM
@@ -331,11 +320,79 @@ class User implements UserInterface {
         </div>
     </div>
 
-    <!-- Quiz Section (Hidden Initially) -->
     <div id="quiz-content" class="container mx-auto p-6 max-w-4xl bg-white shadow-md rounded-lg hidden">
         <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">QCM sur le Cours Symfony</h1>
         <div id="quiz-questions">
-            <!-- Questions will be dynamically inserted here -->
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">1. Quelle commande crée un nouveau projet Symfony avec toutes les dépendances ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="0" data-option="0">symfony new mon_projet</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="0" data-option="1">symfony new mon_projet --webapp</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="0" data-option="2">php bin/console make:project</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="0" data-option="3">symfony create mon_projet</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">2. Quelle commande vide le cache dans Symfony ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="1" data-option="0">php bin/console cache:clear</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="1" data-option="1">symfony cache:clear</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="1" data-option="2">php bin/console clear:cache</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="1" data-option="3">symfony console cache:delete</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">3. Quel dossier contient les entités dans Symfony ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="2" data-option="0">src/Controller/</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="2" data-option="1">src/Entity/</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="2" data-option="2">src/Repository/</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="2" data-option="3">templates/</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">4. Quelle commande génère une entité utilisateur ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="3" data-option="0">php bin/console make:entity</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="3" data-option="1">php bin/console make:user</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="3" data-option="2">php bin/console make:auth</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="3" data-option="3">php bin/console create:user</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">5. Quel composant du modèle MVC gère l'affichage dans Symfony ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="4" data-option="0">Modèle</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="4" data-option="1">Vue</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="4" data-option="2">Contrôleur</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="4" data-option="3">Repository</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">6. Que définit une interface en PHP ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="5" data-option="0">Une classe abstraite</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="5" data-option="1">Un contrat de méthodes à implémenter</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="5" data-option="2">Une méthode statique</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="5" data-option="3">Une logique complète</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">7. Quelle méthode est obligatoire dans UserInterface de Symfony ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="6" data-option="0">getUsername()</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="6" data-option="1">getRoles()</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="6" data-option="2">getEmail()</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="6" data-option="3">setPassword()</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">8. Quelle commande applique une migration Doctrine ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="7" data-option="0">php bin/console doctrine:migrations:migrate</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="7" data-option="1">php bin/console make:migration</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="7" data-option="2">php bin/console doctrine:database:migrate</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="7" data-option="3">php bin/console doctrine:schema:update</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">9. Où sont stockés les fichiers Twig dans Symfony ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="8" data-option="0">src/Entity/</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="8" data-option="1">src/Controller/</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="8" data-option="2">templates/</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="8" data-option="3">src/Repository/</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg font-medium mb-2">10. Quelle commande vérifie les dépendances du projet ?</p>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="9" data-option="0">symfony check:requirements</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="9" data-option="1">php bin/console check:dependencies</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="9" data-option="2">symfony verify:project</button>
+                <button class="block w-full text-left p-3 mb-2 bg-gray-100 rounded-lg hover:bg-gray-200 option-btn" data-question="9" data-option="3">php bin/console debug:requirements</button>
+            </div>
         </div>
         <div id="quiz-result" class="mt-6 text-center hidden">
             <h2 class="text-2xl font-semibold mb-4">Résultat</h2>
@@ -452,7 +509,6 @@ class User implements UserInterface {
 
         let currentScore = 0;
 
-        // Function to display quiz
         function displayQuiz() {
             const quizContainer = document.getElementById('quiz-questions');
             quizContainer.innerHTML = '';
@@ -470,18 +526,15 @@ class User implements UserInterface {
                 quizContainer.appendChild(questionDiv);
             });
 
-            // Add event listeners to option buttons
             document.querySelectorAll('.option-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const questionIndex = parseInt(this.dataset.question);
                     const optionIndex = parseInt(this.dataset.option);
                     const correctIndex = questions[questionIndex].correct;
 
-                    // Disable all buttons for this question
                     document.querySelectorAll(`.option-btn[data-question="${questionIndex}"]`)
                         .forEach(b => b.disabled = true);
 
-                    // Highlight correct/incorrect
                     if (optionIndex === correctIndex) {
                         this.classList.add('correct');
                         currentScore++;
@@ -491,7 +544,6 @@ class User implements UserInterface {
                             .classList.add('correct');
                     }
 
-                    // Check if all questions answered
                     const answeredQuestions = document.querySelectorAll('.option-btn:disabled').length / questions[0].options.length;
                     if (answeredQuestions === questions.length) {
                         showResult();
@@ -500,7 +552,6 @@ class User implements UserInterface {
             });
         }
 
-        // Function to show result
         function showResult() {
             const resultDiv = document.getElementById('quiz-result');
             const scoreText = document.getElementById('score-text');
@@ -508,7 +559,6 @@ class User implements UserInterface {
             resultDiv.classList.remove('hidden');
         }
 
-        // Show quiz button
         document.getElementById('show-quiz').addEventListener('click', () => {
             const courseContent = document.getElementById('course-content');
             const quizContent = document.getElementById('quiz-content');
@@ -521,11 +571,19 @@ class User implements UserInterface {
             }, 500);
         });
 
-        // Restart quiz
         document.getElementById('restart-quiz').addEventListener('click', () => {
             currentScore = 0;
             document.getElementById('quiz-result').classList.add('hidden');
-            displayQuiz();
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('correct', 'incorrect');
+                btn.disabled = false;
+            });
+            document.getElementById('quiz-content').classList.add('fade-out');
+            setTimeout(() => {
+                document.getElementById('course-content').classList.remove('hidden', 'fade-out');
+                document.getElementById('quiz-content').classList.add('hidden');
+                document.getElementById('quiz-content').classList.remove('fade-in');
+            }, 500);
         });
     </script>
 </body>

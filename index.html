@@ -11,9 +11,13 @@
             opacity: 0; 
             transition: opacity 0.5s ease-in-out; 
         }
-        .fade { 
-            opacity: 0; 
-            transition: opacity 0.5s ease-in-out; 
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+        .fade-in {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
         }
         .answer { 
             cursor: pointer; 
@@ -41,84 +45,68 @@
             transition: all 0.3s;
         }
         #toggleButton:hover {
-            tr
-            
-  .course-nav {
-    padding: 1rem;
-    background: #4CAF50;
-    margin-bottom: 2rem;
-  }
-  .course-nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 1.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  .course-nav a:hover {
-    background-color: #45a049;
-  }
-  .course-nav a.current {
-    background-color: #2E7D32;
-    font-weight: bold;
-  }
-
+            background-color: #2563eb;
+        }
+        .course-nav {
+            padding: 1rem;
+            background: #4CAF50;
+            margin-bottom: 2rem;
+        }
+        .course-nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .course-nav a:hover {
+            background-color: #45a049;
+        }
+        .course-nav a.current {
+            background-color: #2E7D32;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
     <nav class="course-nav">
-  <a href="index.html" class="current">Accueil</a>
-  <a href="page2.html">Cours Symfony</a>
-  <a href="page3.html">Autre Cours</a>
-</nav>
-    <nav style="padding: 1rem; background: #f0f0f0; margin-bottom: 2rem;">
-  <a href="index.html" style="margin-right: 1rem;">Accueil</a>
-  <a href="page2.html" style="margin-right: 1rem;">Cours Symfony</a>
-  <a href="page3.html">Autre Cours</a>
-</nav>
-    <nav class="bg-blue-600 text-white fixed top-0 w-full shadow-lg z-10">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-around">
-            <a href="#creation-projet" class="px-4 py-2 hover:bg-blue-700 rounded">Création Projet</a>
-            <a href="#dependances" class="px-4 py-2 hover:bg-blue-700 rounded">Dépendances</a>
-            <a href="#entites" class="px-4 py-2 hover:bg-blue-700 rounded">Entités</a>
-            <a href="#controllers" class="px-4 py-2 hover:bg-blue-700 rounded">Contrôleurs</a>
-            <a href="#templates" class="px-4 py-2 hover:bg-blue-700 rounded">Templates</a>
-            <a href="#qcm" class="px-4 py-2 hover:bg-blue-700 rounded">Test</a>
-        </div>
+        <a href="index.html" class="current">Cours 1</a>
+        <a href="page2.html">Cours 2</a>
+        <a href="page3.html">Cours 3</a>
     </nav>
 
-    <div class="max-w-5xl mx-auto mt-20 p-6">
+    <div class="max-w-5xl mx-auto mt-10 p-6">
         <h1 class="text-3xl font-bold text-center text-blue-600 mb-8">Apprendre à Développer un Projet Symfony</h1>
 
         <div id="course-content">
             <section id="creation-projet" class="mb-10 p-6 bg-white rounded-lg shadow">
                 <h2 class="text-2xl font-semibold text-blue-600 mb-4">Étape 1 : Création du Projet Symfony</h2>
                 <p class="text-gray-700">Symfony est un framework PHP robuste qui suit le modèle MVC (Modèle-Vue-Contrôleur). Pour démarrer, utilisez Composer pour créer un projet avec une structure minimale :</p>
-                <code class="block bg-gray-100 p-2 rounded mt-4">composer create-project symfony/skeleton mon-projet-symfony</code>
+                <pre class="block bg-gray-100 p-2 rounded mt-4"><code>composer create-project symfony/skeleton mon-projet-symfony</code></pre>
                 <p class="mt-4">Accédez au répertoire du projet :</p>
-                <code class="block bg-gray-100 p-2 rounded">cd mon-projet-symfony</code>
+                <pre class="block bg-gray-100 p-2 rounded"><code>cd mon-projet-symfony</code></pre>
                 <p class="mt-4">Cette commande crée une arborescence de base avec les dossiers <code>config/</code>, <code>src/</code>, <code>public/</code>, et <code>templates/</code>. Vous pouvez ensuite ajouter des bundles pour étendre les fonctionnalités.</p>
             </section>
 
             <section id="dependances" class="mb-10 p-6 bg-white rounded-lg shadow">
                 <h2 class="text-2xl font-semibold text-blue-600 mb-4">Étape 2 : Installation des Dépendances</h2>
                 <p class="text-gray-700">Les dépendances ajoutent des fonctionnalités comme la gestion de la base de données, les formulaires, et la sécurité. Voici les commandes principales :</p>
-                <code class="block bg-gray-100 p-2 rounded mt-4">
-                    composer require symfony/orm-pack<br>
-                    composer require symfony/maker-bundle --dev<br>
-                    composer require symfony/form<br>
-                    composer require symfony/security-bundle<br>
-                    composer require symfony/validator<br>
-                    composer require twig/extra-bundle
-                </code>
+                <pre class="block bg-gray-100 p-2 rounded mt-4"><code>
+composer require symfony/orm-pack
+composer require symfony/maker-bundle --dev
+composer require symfony/form
+composer require symfony/security-bundle
+composer require symfony/validator
+composer require twig/extra-bundle
+                </code></pre>
                 <p class="mt-4">Pour un design moderne, intégrez Tailwind CSS :</p>
-                <code class="block bg-gray-100 p-2 rounded">
-                    npm install -D tailwindcss<br>
-                    npx tailwindcss init
-                </code>
+                <pre class="block bg-gray-100 p-2 rounded"><code>
+npm install -D tailwindcss
+npx tailwindcss init
+                </code></pre>
                 <p class="mt-4">Configurez <code>tailwind.config.js</code> pour inclure les templates Twig et générez les styles :</p>
-                <code class="block bg-gray-100 p-2 rounded">npx tailwindcss -i public/css/tailwind.css -o public/css/tailwind.min.css --minify</code>
+                <pre class="block bg-gray-100 p-2 rounded"><code>npx tailwindcss -i public/css/tailwind.css -o public/css/tailwind.min.css --minify</code></pre>
                 <p class="mt-4">Ces dépendances permettent de gérer les entités, les formulaires, la sécurité, et un rendu visuel moderne.</p>
             </section>
 
@@ -126,31 +114,35 @@
                 <h2 class="text-2xl font-semibold text-blue-600 mb-4">Étape 3 : Entités - Modèles de Données</h2>
                 <p class="text-gray-700">Les entités sont des classes PHP représentant les tables de la base de données. Elles sont mappées avec Doctrine ORM pour gérer les données. Par exemple, pour un site e-commerce, vous pourriez avoir des entités comme <code>User</code>, <code>Produit</code>, <code>Commande</code>, et <code>CommandeItem</code>.</p>
                 <p class="mt-4">Créez-les avec le Maker Bundle :</p>
-                <code class="block bg-gray-100 p-2 rounded mt-4">
-                    symfony console make:entity User<br>
-                    symfony console make:entity Produit<br>
-                    symfony console make:entity Commande<br>
-                    symfony console make:entity CommandeItem
-                </code>
+                <pre class="block bg-gray-100 p-2 rounded mt-4"><code>
+symfony console make:entity User
+symfony console make:entity Produit
+symfony console make:entity Commande
+symfony console make:entity CommandeItem
+                </code></pre>
                 <p class="mt-4">Exemple d'entité <code>Produit</code> :</p>
-                <code class="block bg-gray-100 p-2 rounded">
-                    &lt;?php<br>
-                    namespace App\Entity;<br>
-                    use Doctrine\ORM\Mapping as ORM;<br><br>
-                    #[ORM\Entity(repositoryClass: ProduitRepository::class)]<br>
-                    class Produit<br>
-                    {<br>
-                        #[ORM\Id]<br>
-                        #[ORM\GeneratedValue]<br>
-                        #[ORM\Column]<br>
-                        private ?int $id = null;<br><br>
-                        #[ORM\Column(length: 255)]<br>
-                        private ?string $nom = null;<br><br>
-                        #[ORM\Column(type: 'decimal', scale: 2)]<br>
-                        private ?float $prix = null;<br><br>
-                        // Getters et Setters<br>
-                    }
-                </code>
+                <pre class="block bg-gray-100 p-2 rounded"><code>
+<?php
+namespace App\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: ProduitRepository::class)]
+class Produit
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $nom = null;
+
+    #[ORM\Column(type: 'decimal', scale: 2)]
+    private ?float $prix = null;
+
+    // Getters et Setters
+}
+                </code></pre>
                 <p class="mt-4"><strong>Principes clés</strong> :</p>
                 <ul class="list-disc list-inside text-gray-700">
                     <li>Chaque entité correspond à une table dans la base de données.</li>
@@ -159,47 +151,52 @@
                     <li>Les relations (ex. OneToMany entre <code>Commande</code> et <code>CommandeItem</code>) sont configurées dans les entités.</li>
                 </ul>
                 <p class="mt-4">Après création, générez les migrations pour mettre à jour la base de données :</p>
-                <code class="block bg-gray-100 p-2 rounded">symfony console make:migration</code>
-                <code class="block bg-gray-100 p-2 rounded">symfony console doctrine:migrations:migrate</code>
+                <pre class="block bg-gray-100 p-2 rounded"><code>
+symfony console make:migration
+symfony console doctrine:migrations:migrate
+                </code></pre>
             </section>
 
             <section id="controllers" class="mb-10 p-6 bg-white rounded-lg shadow">
                 <h2 class="text-2xl font-semibold text-blue-600 mb-4">Étape 4 : Contrôleurs - Gestion des Requêtes</h2>
                 <p class="text-gray-700">Les contrôleurs gèrent les requêtes HTTP et rendent les templates ou renvoient des réponses JSON. Ils contiennent des actions (méthodes) associées à des routes. Créez-les avec :</p>
-                <code class="block bg-gray-100 p-2 rounded mt-4">
-                    symfony console make:controller MainController<br>
-                    symfony console make:controller ProduitController<br>
-                    symfony console make:controller PanierController<br>
-                    symfony console make:controller CommandeController
-                </code>
+                <pre class="block bg-gray-100 p-2 rounded mt-4"><code>
+symfony console make:controller MainController
+symfony console make:controller ProduitController
+symfony console make:controller PanierController
+symfony console make:controller CommandeController
+                </code></pre>
                 <p class="mt-4">Exemple de <code>ProduitController</code> :</p>
-                <code class="block bg-gray-100 p-2 rounded">
-                    &lt;?php<br>
-                    namespace App\Controller;<br><br>
-                    use App\Repository\ProduitRepository;<br>
-                    use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;<br>
-                    use Symfony\Component\HttpFoundation\Response;<br>
-                    use Symfony\Component\Routing\Annotation\Route;<br><br>
-                    class ProduitController extends AbstractController<br>
-                    {<br>
-                        #[Route('/produits', name: 'app_produit_index')]<br>
-                        public function index(ProduitRepository $repository): Response<br>
-                        {<br>
-                            $produits = $repository->findAll();<br>
-                            return $this->render('produit/index.html.twig', [<br>
-                                'produits' => $produits,<br>
-                            ]);<br>
-                        }<br><br>
-                        #[Route('/produit/{id}', name: 'app_produit_show')]<br>
-                        public function show(int $id, ProduitRepository $repository): Response<br>
-                        {<br>
-                            $produit = $repository->find($id);<br>
-                            return $this->render('produit/details.html.twig', [<br>
-                                'produit' => $produit,<br>
-                            ]);<br>
-                        }<br>
-                    }
-                </code>
+                <pre class="block bg-gray-100 p-2 rounded"><code>
+<?php
+namespace App\Controller;
+
+use App\Repository\ProduitRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class ProduitController extends AbstractController
+{
+    #[Route('/produits', name: 'app_produit_index')]
+    public function index(ProduitRepository $repository): Response
+    {
+        $produits = $repository->findAll();
+        return $this->render('produit/index.html.twig', [
+            'produits' => $produits,
+        ]);
+    }
+
+    #[Route('/produit/{id}', name: 'app_produit_show')]
+    public function show(int $id, ProduitRepository $repository): Response
+    {
+        $produit = $repository->find($id);
+        return $this->render('produit/details.html.twig', [
+            'produit' => $produit,
+        ]);
+    }
+}
+                </code></pre>
                 <p class="mt-4"><strong>Principes clés</strong> :</p>
                 <ul class="list-disc list-inside text-gray-700">
                     <li>Les routes sont définies avec des annotations (ex. <code>#[Route]</code>) ou dans <code>config/routes.yaml</code>.</li>
@@ -214,51 +211,46 @@
                 <h2 class="text-2xl font-semibold text-blue-600 mb-4">Étape 5 : Templates - Interface Utilisateur</h2>
                 <p class="text-gray-700">Les templates, écrits en Twig, définissent l'interface utilisateur. Ils sont stockés dans le dossier <code>templates/</code> et utilisent une syntaxe simple pour afficher des données dynamiques.</p>
                 <p class="mt-4">Créez la structure des templates :</p>
-                <code class="block bg-gray-100 p-2 rounded mt-4">
-                    touch templates/base.html.twig<br>
-                    touch templates/main/home.html.twig<br>
-                    touch templates/produit/index.html.twig<br>
-                    touch templates/produit/details.html.twig<br>
-                    touch templates/panier/index.html.twig
-                </code>
+                <pre class="block bg-gray-100 p-2 rounded mt-4"><code>
+touch templates/base.html.twig
+touch templates/main/home.html.twig
+touch templates/produit/index.html.twig
+touch templates/produit/details.html.twig
+touch templates/panier/index.html.twig
+                </code></pre>
                 <p class="mt-4">Exemple de <code>base.html.twig</code> :</p>
-                <code class="block bg-gray-100 p-2 rounded">
-                    &lt;!DOCTYPE html&gt;<br>
-                    &lt;html lang="fr"&gt;<br>
-                    &lt;head&gt;<br>
-                        &lt;meta charset="UTF-8"&gt;<br>
-                        &lt;title&gt;{% block title %}Mon Site Symfony{% endblock %}&lt;/title&gt;<br>
-                        &lt;link href="/css/tailwind.min.css" rel="stylesheet"&gt;<br>
-                    &lt;/head&gt;<br>
-                    &lt;body class="bg-gray-100"&gt;<br>
-                        &lt;nav class="bg-blue-600 text-white fixed top-0 w-full"&gt;<br>
-                            &lt;div class="max-w-5xl mx-auto px-4 py-3 flex justify-around"&gt;<br>
-                                &lt;a href="{{ path('app_main_home') }}" class="px-4 py-2 hover:bg-blue-700 rounded"&gt;Accueil&lt;/a&gt;<br>
-                                &lt;a href="{{ path('app_produit_index') }}" class="px-4 py-2 hover:bg-blue-700 rounded"&gt;Produits&lt;/a&gt;<br>
-                            &lt;/div&gt;<br>
-                        &lt;/nav&gt;<br>
-                        &lt;div class="max-w-5xl mx-auto mt-20 p-6"&gt;<br>
-                            {% block body %}{% endblock %}<br>
-                        &lt;/div&gt;<br>
-                    &lt;/body&gt;<br>
-                    &lt;/html&gt;
-                </code>
+                <pre class="block bg-gray-100 p-2 rounded"><code>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mon Site Symfony{% endblock %}</title>
+    <link href="/css/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+   
+    <div class="max-w-5xl mx-auto mt-20 p-6">
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>
+                </code></pre>
                 <p class="mt-4">Exemple de <code>produit/index.html.twig</code> :</p>
-                <code class="block bg-gray-100 p-2 rounded">
-                    {% extends 'base.html.twig' %}<br>
-                    {% block title %}Liste des Produits{% endblock %}<br>
-                    {% block body %}<br>
-                        &lt;h1 class="text-3xl font-bold text-blue-600"&gt;Produits&lt;/h1&gt;<br>
-                        &lt;div class="grid grid-cols-3 gap-4"&gt;<br>
-                            {% for produit in produits %}<br>
-                                &lt;div class="bg-white p-4 rounded shadow"&gt;<br>
-                                    &lt;h2&gt;{{ produit.nom }}&lt;/h2&gt;<br>
-                                    &lt;p&gt;{{ produit.prix }} €&lt;/p&gt;<br>
-                                &lt;/div&gt;<br>
-                            {% endfor %}<br>
-                        &lt;/div&gt;<br>
-                    {% endblock %}
-                </code>
+                <pre class="block bg-gray-100 p-2 rounded"><code>
+{% extends 'base.html.twig' %}
+{% block title %}Liste des Produits{% endblock %}
+{% block body %}
+    <h1 class="text-3xl font-bold text-blue-600">Produits</h1>
+    <div class="grid grid-cols-3 gap-4">
+        {% for produit in produits %}
+            <div class="bg-white p-4 rounded shadow">
+                <h2>{{ produit.nom }}</h2>
+                <p>{{ produit.prix }} €</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+                </code></pre>
                 <p class="mt-4"><strong>Principes clés</strong> :</p>
                 <ul class="list-disc list-inside text-gray-700">
                     <li><code>base.html.twig</code> définit la structure globale avec des blocs réutilisables (<code>{% block %}</code>).</li>
@@ -275,115 +267,133 @@
             </button>
         </div>
 
-        <div id="qcm-section" class="opacity-0 h-0 overflow-hidden transition-all duration-500">
+        <div id="qcm-section" class="hidden fade-out">
             <section id="qcm" class="mb-10 p-6 bg-white rounded-lg shadow">
                 <h2 class="text-2xl font-semibold text-blue-600 mb-4">QCM - Testez vos connaissances</h2>
-                
-                <p class="font-bold text-gray-700 mb-2">Quelle commande crée un projet Symfony ?</p>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, true)">composer create-project symfony/skeleton mon-projet-symfony</span>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, false)">symfony new mon-projet-symfony</span>
-
-                <p class="font-bold text-gray-700 mb-2 mt-4">Quelle commande installe le Maker Bundle ?</p>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, true)">composer require symfony/maker-bundle --dev</span>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, false)">npm install maker-bundle</span>
-
-                <p class="font-bold text-gray-700 mb-2 mt-4">Que fait une entité dans Symfony ?</p>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, true)">Représente une table de la base de données</span>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, false)">Gère les requêtes HTTP</span>
-
-                <p class="font-bold text-gray-700 mb-2 mt-4">Quel rôle joue un contrôleur ?</p>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, true)">Gère les requêtes et rend les templates</span>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, false)">Définit l'interface utilisateur</span>
-
-                <p class="font-bold text-gray-700 mb-2 mt-4">Quel fichier définit la mise en page globale ?</p>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, true)">base.html.twig</span>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, false)">index.html.twig</span>
-
-                <p class="font-bold text-gray-700 mb-2 mt-4">Que permet la syntaxe <code>{% extends %}</code> dans Twig ?</p>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, true)">Étend un template parent</span>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, false)">Crée une nouvelle entité</span>
-
-                <p class="font-bold text-gray-700 mb-2 mt-4">Quel composant Doctrine est utilisé pour mapper une entité ?</p>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, true)">Annotations ORM</span>
-                <span class="answer inline-block px-4 py-2 bg-gray-100 rounded m-1" onclick="checkAnswer(this, false)">Filtres Twig</span>
-
-                <h2 class="text-xl font-semibold mt-6">Note Finale : <span id="score">0</span>/7</h2>
+                <div id="quiz-questions">
+                    <div class="mb-6">
+                        <p class="font-bold text-gray-700 mb-2">1. Quelle commande crée un projet Symfony ?</p>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="true">composer create-project symfony/skeleton mon-projet-symfony</button>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="false">symfony new mon-projet-symfony</button>
+                    </div>
+                    <div class="mb-6">
+                        <p class="font-bold text-gray-700 mb-2">2. Quelle commande installe le Maker Bundle ?</p>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="true">composer require symfony/maker-bundle --dev</button>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="false">npm install maker-bundle</button>
+                    </div>
+                    <div class="mb-6">
+                        <p class="font-bold text-gray-700 mb-2">3. Que fait une entité dans Symfony ?</p>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="true">Représente une table de la base de données</button>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="false">Gère les requêtes HTTP</button>
+                    </div>
+                    <div class="mb-6">
+                        <p class="font-bold text-gray-700 mb-2">4. Quel rôle joue un contrôleur ?</p>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="true">Gère les requêtes et rend les templates</button>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="false">Définit l'interface utilisateur</button>
+                    </div>
+                    <div class="mb-6">
+                        <p class="font-bold text-gray-700 mb-2">5. Quel fichier définit la mise en page globale ?</p>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="true">base.html.twig</button>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="false">index.html.twig</button>
+                    </div>
+                    <div class="mb-6">
+                        <p class="font-bold text-gray-700 mb-2">6. Que permet la syntaxe <code>{% extends %}</code> dans Twig ?</p>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="true">Étend un template parent</button>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="false">Crée une nouvelle entité</button>
+                    </div>
+                    <div class="mb-6">
+                        <p class="font-bold text-gray-700 mb-2">7. Quel composant Doctrine est utilisé pour mapper une entité ?</p>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="true">Annotations ORM</button>
+                        <button class="answer block w-full text-left p-3 mb-2 bg-gray-100 rounded" data-correct="false">Filtres Twig</button>
+                    </div>
+                </div>
+                <div id="quiz-result" class="mt-6 text-center hidden">
+                    <h2 class="text-xl font-semibold mb-4">Résultat</h2>
+                    <p id="score-text" class="text-lg"></p>
+                    <button id="restart-quiz" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition mt-4">Recommencer le QCM</button>
+                </div>
             </section>
         </div>
     </div>
 
     <script>
         let score = 0;
+        const totalQuestions = 7;
 
-        function checkAnswer(element, isCorrect) {
-            if (element.classList.contains('correct') || element.classList.contains('wrong')) {
-                return; // Empêche de répondre plusieurs fois à la même question
-            }
-            
-            if (isCorrect) {
-                element.classList.add("correct");
-                score++;
-            } else {
-                element.classList.add("wrong");
-                // Trouver la bonne réponse et la marquer comme correcte
-                const parent = element.parentNode;
-                const answers = parent.querySelectorAll('.answer');
-                answers.forEach(ans => {
-                    if (ans !== element && ans.onclick.toString().includes('true')) {
-                        ans.classList.add('correct');
+        function displayQuiz() {
+            const quizContainer = document.getElementById('quiz-questions');
+            document.querySelectorAll('.answer').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (this.classList.contains('correct') || this.classList.contains('wrong')) return;
+
+                    const isCorrect = this.dataset.correct === 'true';
+                    const questionDiv = this.parentNode;
+
+                    // Disable all buttons for this question
+                    questionDiv.querySelectorAll('.answer').forEach(b => b.disabled = true);
+
+                    // Highlight correct/incorrect
+                    if (isCorrect) {
+                        this.classList.add('correct');
+                        score++;
+                    } else {
+                        this.classList.add('wrong');
+                        questionDiv.querySelector('.answer[data-correct="true"]').classList.add('correct');
+                    }
+
+                    // Check if all questions answered
+                    const answeredQuestions = document.querySelectorAll('.answer:disabled').length / 2;
+                    if (answeredQuestions === totalQuestions) {
+                        showResult();
                     }
                 });
-            }
-            document.getElementById("score").innerText = score;
+            });
         }
 
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        function showResult() {
+            const resultDiv = document.getElementById('quiz-result');
+            const scoreText = document.getElementById('score-text');
+            scoreText.textContent = `Votre score : ${score} / ${totalQuestions}`;
+            resultDiv.classList.remove('hidden');
+        }
 
         document.getElementById('toggleButton').addEventListener('click', function() {
             const courseContent = document.getElementById('course-content');
             const qcmSection = document.getElementById('qcm-section');
-            
-            // Faire disparaître le cours
-            courseContent.style.opacity = '0';
-            courseContent.style.height = '0';
-            courseContent.style.overflow = 'hidden';
-            courseContent.style.margin = '0';
-            courseContent.style.padding = '0';
-            
-            // Faire apparaître le QCM
-            qcmSection.style.opacity = '1';
-            qcmSection.style.height = 'auto';
-            qcmSection.style.overflow = 'visible';
-            
-            // Changer le texte du bouton
-            this.textContent = 'Revenir au Cours';
-            this.onclick = function() {
-                // Faire réapparaître le cours
-                courseContent.style.opacity = '1';
-                courseContent.style.height = 'auto';
-                courseContent.style.overflow = 'visible';
-                courseContent.style.margin = '';
-                courseContent.style.padding = '';
-                
-                // Faire disparaître le QCM
-                qcmSection.style.opacity = '0';
-                qcmSection.style.height = '0';
-                qcmSection.style.overflow = 'hidden';
-                
-                // Rechanger le texte du bouton
-                this.textContent = 'Passer au QCM';
-                this.onclick = arguments.callee;
-            };
-            
-            // Scroll vers le QCM
-            document.getElementById('qcm').scrollIntoView({ behavior: 'smooth' });
+            courseContent.classList.add('fade-out');
+            setTimeout(() => {
+                courseContent.classList.add('hidden');
+                qcmSection.classList.remove('hidden');
+                qcmSection.classList.add('fade-in');
+                displayQuiz();
+                document.getElementById('qcm').scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        });
+
+        document.getElementById('restart-quiz').addEventListener('click', () => {
+            score = 0;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.querySelectorAll('.answer').forEach(btn => {
+                btn.classList.remove('correct', 'wrong');
+                btn.disabled = false;
+            });
+            document.getElementById('qcm-section').classList.add('fade-out');
+            setTimeout(() => {
+                document.getElementById('course-content').classList.remove('hidden', 'fade-out');
+                document.getElementById('qcm-section').classList.add('hidden');
+                document.getElementById('qcm-section').classList.remove('fade-in');
+            }, 500);
+        });
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
